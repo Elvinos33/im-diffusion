@@ -6,7 +6,7 @@ export default function Home() {
       <div className="flex justify-center">
         <div className="w-full mx-2 sm:mx-0 sm:w-11/12 md:w-5/6 lg:w-4/6">
           <div className="w-full flex justify-center items-center h-[30rem]">
-            <span className="text-6xl font-bold">IMDiffusion</span>
+            <span className="text-6xl font-bold">STAI_AI_Kaptein</span>
           </div>
         </div>
       </div>

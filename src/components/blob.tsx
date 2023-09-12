@@ -26,7 +26,7 @@ export function MouseBlob(){
     const mousePosition = useMousePosition();
 
     return(
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.x, y: mousePosition.y, transition: {type: "just", duration: "0.2"} }}  className="w-[1px] h-[1px] aspect-square absolute lg:flex justify-center items-center overflow-visible -z-10 hidden">
+        <motion.div initial={{ opacity: 0, x: -1000 }} animate={{ opacity: 1, x: mousePosition.x, y: mousePosition.y, transition: {type: "just", duration: "0.2"} }} className="w-[0.1px] h-[0.1px] aspect-square absolute lg:flex justify-center items-center overflow-visible -z-10 hidden">
             <div className="w-72 min-w-[18rem] h-72 min-h-[18rem] bg-gradient-to-br from-blue-800 to-blue-300 aspect-square rounded-full blur-[160px]"></div>
         </motion.div>
     )
