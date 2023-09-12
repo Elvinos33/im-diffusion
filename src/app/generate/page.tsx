@@ -15,11 +15,11 @@ export default function Page() {
                 <section className="flex w-full h-1/4 items-center justify-end flex-col gap-2">
                     <AiForm setImageData={setImage}/>
                 </section>
-                <section className="mt-12 w-4/6 items-center justify-center">
+                <section className="p-12 w-4/6 items-center justify-center">
                         <Image alt="AI bilde" src={image} width={500} height={500} />
                 </section>
             </main>
-            <section className="flex bg-gray-700 w-3/4 h-screen">
+            <section className="m-10 flex bg-gray-700 w-3/4 h-screen">
                 
             </section>
         </div>

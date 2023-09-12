@@ -58,24 +58,17 @@ export default function AiForm(props:Props) {
         reset();
     }
 
-    useEffect(() => {
-        console.log(renderData.data)
-    }, [renderData]);
-
     function getImageData() {
         axios.get(`http://10.58.176.142:9000/image/stream/${renderData.data.task}`)
             .then((response) => {
                 console.log(response);
-                props.setImageData(response);
+                props.setImageData(response.data.output[0].data);
                 return
             })
             .catch((error) => {
                 console.error(error);
-            })
-            .finally(() => {
-                // Retry the request after 2 seconds
                 setTimeout(getImageData, 2000);
-            });
+            })
     }
 
     return (
