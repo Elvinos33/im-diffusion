@@ -1,3 +1,4 @@
+import { MouseBlob } from '@/components/blob'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -16,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-900 text-gray-50`}>{children}</body>
+      <body className={`${inter.className} bg-slate-950 text-gray-50`}>
+        <MouseBlob />
+        {children}
+      </body>
     </html>
   )
 }
