@@ -28,7 +28,7 @@ export default function AiForm(props:Props) {
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)} className={"flex flex-col gap-3 w-1/2"}>
-                <input type="text" className={"p-5 rounded-md text-black bg-slate-100 transition hover:bg-white focus:bg-white"} placeholder={"Skriv her.."} {...register("prompt", {required: true})}/>
+                <input autoComplete="off" type="text" className={"p-5 rounded-md text-black bg-slate-100 transition hover:bg-white focus:bg-white"} placeholder={"Skriv her.."} {...register("prompt", {required: true})}/>
                 <button className={"bg-slate-800 py-3 rounded-md font-bold transition hover:bg-slate-300 hover:text-black"}>Generer</button>
             </form>
         </>
