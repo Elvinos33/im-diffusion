@@ -17,7 +17,7 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <span>©Elvin, Henrik, Herjus</span>
+        <span>©Elvebakken IM</span>
       </div>
     </main>
   )
