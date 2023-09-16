@@ -4,7 +4,7 @@ import Image from "next/image"
 import AiForm from "@/components/aiForm"
 import {useState} from "react";
 import Link from "next/link";
-import { GeneratedImageCard } from "@/components/generatedObject";
+import { GeneratedImageCard } from "@/components/generatedImageCard";
 
 export type GeneratedObject = {
     image: string,
@@ -30,10 +30,11 @@ export default function Page() {
                         )}
                     </section> */}
                 </div>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {list.map((card: GeneratedObject) => (
                         <GeneratedImageCard id={card.id} image={card.image} prompt={card.prompt} key={card.id}/>
                     ))}
+                    <GeneratedImageCard id={1} image="" prompt="ong"/>
                 </div>
             </div>
         </main>

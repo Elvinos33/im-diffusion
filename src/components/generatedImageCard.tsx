@@ -5,7 +5,7 @@ import { Skeleton } from "./ui/skeleton";
 
 export function GeneratedImageCard(props: GeneratedObject){
     return(
-        <Card>
+        <Card className="bg-transparent text-primary-foreground border-slate-600">
             <CardHeader>
                 <CardTitle>
                     {props.prompt}
