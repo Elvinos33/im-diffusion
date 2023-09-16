@@ -34,7 +34,7 @@ export default function Page() {
                     {list.map((card: GeneratedObject) => (
                         <GeneratedImageCard id={card.id} image={card.image} prompt={card.prompt} key={card.id}/>
                     ))}
-                    <GeneratedImageCard id={1} image="" prompt="ong"/>
+                    {/* <GeneratedImageCard id={1} image="" prompt="ong"/> */}
                 </div>
             </div>
         </main>
