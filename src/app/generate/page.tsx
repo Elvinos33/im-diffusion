@@ -19,7 +19,7 @@ export default function Page() {
     return (
         <main className="flex justify-center">
             <div className="w-full mx-2 sm:mx-0 sm:w-11/12 md:w-4/6 lg:w-3/6 space-y-2">
-                <div className="w-full py-2">
+                <div className="w-full pt-2">
                     <Link href={"/"} className="text-3xl font-bold">ARTISM</Link>
                 </div>
                 <div className="flex-col items-center flex">
