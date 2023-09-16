@@ -14,7 +14,7 @@ export default function AiForm(props:Props) {
     const {handleSubmit, reset, register} = useForm()
 
     function addToList(newObject: GeneratedObject){
-        props.setList(list => [...list, newObject])
+        props.setList(list => [newObject,...list])
     }
 
     function onSubmit(data: any) {

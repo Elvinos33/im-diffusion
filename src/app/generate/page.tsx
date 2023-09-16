@@ -31,7 +31,7 @@ export default function Page() {
                     </section> */}
                 </div>
                 <div className="grid grid-cols-2 gap-2">
-                    {list.reverse().map((card: GeneratedObject) => (
+                    {list.map((card: GeneratedObject) => (
                         <GeneratedImageCard id={card.id} image={card.image} prompt={card.prompt} key={card.id}/>
                     ))}
                 </div>
