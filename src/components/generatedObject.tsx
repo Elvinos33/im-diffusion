@@ -14,7 +14,7 @@ export function GeneratedImageCard(props: GeneratedObject){
             <CardContent>
                 {props.image ? (
                     // <Image alt="AI bilde" className="w-full" src={`data:image/png;base64,${props.image}`}  width={500} height={500} />
-                    <Image alt="AI bilde" className="w-full" src={`${props.image}`}  width={500} height={500} />
+                    <img alt="AI bilde" className="w-full" src={`${props.image}`} />
                 ) : (
                     <Skeleton className="w-full aspect-square"/>
                 )}

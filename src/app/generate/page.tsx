@@ -32,7 +32,7 @@ export default function Page() {
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                     {list.reverse().map((card: GeneratedObject) => (
-                        <GeneratedImageCard image={card.image} prompt={card.prompt} key={card.id}/>
+                        <GeneratedImageCard id={card.id} image={card.image} prompt={card.prompt} key={card.id}/>
                     ))}
                 </div>
             </div>

@@ -18,24 +18,21 @@ export default function AiForm(props:Props) {
     }
 
     function onSubmit(data: any) {
-        // axios.get(`http://127.0.0.1:8000/?prompt=${data.prompt}`)
-        //     .then((response) => {
-        //         console.log(response);
-        //         // props.setImageData(response.data.image);
-                
-
-        //         return
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //     })
-        const object: GeneratedObject = {
-            image: "",
-            prompt: data.prompt,
-            id: 4,
-        }
-
-        addToList(object)
+        axios.get(`http://127.0.0.1:8000/?prompt=${data.prompt}`)
+            .then((response) => {
+                console.log(response);
+                // props.setImageData(response.data.image);
+                const object: GeneratedObject = {
+                    image: response.data.image,
+                    prompt: data.prompt,
+                    id: response.data.id,
+                }
+                addToList(object)
+                return
+            })
+            .catch((error) => {
+                console.error(error);
+            })
 
         reset();
     }
@@ -45,7 +42,7 @@ export default function AiForm(props:Props) {
             <form onSubmit={handleSubmit(onSubmit)} className={"w-full"}>
                 <div className="flex items-center space-x-2">
                     <Input autoComplete="off" type="text" placeholder={"Enter prompt.."} {...register("prompt", {required: true})}/>
-                    <Button type="submit" variant={"outline"}>Generer</Button>
+                    <Button type="submit" variant={"outline"}>Generate</Button>
                 </div>
             </form>
         </>
