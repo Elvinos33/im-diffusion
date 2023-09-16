@@ -4,10 +4,17 @@ import Image from "next/image"
 import AiForm from "@/components/aiForm"
 import {useState} from "react";
 import Link from "next/link";
+import { GeneratedImageCard } from "@/components/generatedObject";
+
+export type GeneratedObject = {
+    image: string,
+    prompt: string,
+    id: number,
+}
 
 export default function Page() {
+    const [list, setList] = useState([]);
 
-    const [image, setImage] = useState(null)
 
     return (
         <main className="flex justify-center">
@@ -16,12 +23,17 @@ export default function Page() {
                     <Link href={"/"} className="text-3xl font-bold">ARTISM</Link>
                 </div>
                 <div className="flex-col items-center flex">
-                    <AiForm setImageData={setImage}/>
-                    <section className="p-12 w-4/6 flex items-center justify-center">
+                    <AiForm setList={setList}/>
+                    {/* <section className="p-12 w-4/6 flex items-center justify-center">
                         {image && (
                             <Image alt="AI bilde" src={`data:image/png;base64,${image}`}  width={500} height={500} />
                         )}
-                    </section>
+                    </section> */}
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                    {list.reverse().map((card: GeneratedObject) => (
+                        <GeneratedImageCard image={card.image} prompt={card.prompt} key={card.id}/>
+                    ))}
                 </div>
             </div>
         </main>
