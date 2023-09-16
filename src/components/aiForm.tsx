@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 type Props = {
     setImageData(): any
@@ -28,9 +29,11 @@ export default function AiForm(props:Props) {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} className={"flex flex-col gap-3 w-1/2"}>
-                <input autoComplete="off" type="text" className={"p-5 rounded-md text-black bg-slate-100 transition hover:bg-white focus:bg-white"} placeholder={"Skriv her.."} {...register("prompt", {required: true})}/>
-                <Button variant={"default"}>Generer</Button>
+            <form onSubmit={handleSubmit(onSubmit)} className={"w-full"}>
+                <div className="flex items-center space-x-2">
+                    <Input autoComplete="off" type="text" placeholder={"Enter prompt.."} {...register("prompt", {required: true})}/>
+                    <Button type="submit" variant={"outline"}>Generer</Button>
+                </div>
             </form>
         </>
     )

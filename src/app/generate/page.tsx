@@ -3,23 +3,27 @@
 import Image from "next/image"
 import AiForm from "@/components/aiForm"
 import {useState} from "react";
+import Link from "next/link";
 
 export default function Page() {
 
     const [image, setImage] = useState(null)
 
     return (
-        <div className="w-screen flex-col items-center flex">
-            <main className="flex w-screen flex-col h-screen items-center gap-1">
-                <section className="flex w-full h-1/4 items-center justify-end flex-col gap-2">
+        <main className="flex justify-center">
+            <div className="w-full mx-2 sm:mx-0 sm:w-11/12 md:w-4/6 lg:w-3/6 space-y-2">
+                <div className="w-full py-2">
+                    <Link href={"/"} className="text-3xl font-bold">ARTISM</Link>
+                </div>
+                <div className="flex-col items-center flex">
                     <AiForm setImageData={setImage}/>
-                </section>
-                <section className="p-12 w-4/6 flex items-center justify-center">
-                    {image && (
-                        <Image alt="AI bilde" src={`data:image/png;base64,${image}`}  width={500} height={500} />
-                    )}
-                </section>
-            </main>
-        </div>
+                    <section className="p-12 w-4/6 flex items-center justify-center">
+                        {image && (
+                            <Image alt="AI bilde" src={`data:image/png;base64,${image}`}  width={500} height={500} />
+                        )}
+                    </section>
+                </div>
+            </div>
+        </main>
     )
 }
