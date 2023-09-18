@@ -28,7 +28,7 @@ export default function Page() {
                 </div>
                 <div className="flex-col items-center flex">
                     {/*@ts-ignore*/}
-                    <AiForm setList={setList}/>
+                    <AiForm list={list} setList={setList}/>
                     {/* <section className="p-12 w-4/6 flex items-center justify-center">
                         {image && (
                             <Image alt="AI bilde" src={`data:image/png;base64,${image}`}  width={500} height={500} />

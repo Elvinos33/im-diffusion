@@ -7,6 +7,7 @@ import { GeneratedObject } from "@/app/generate/page";
 type Props = {
     // setImageData(): void
     setList(): void,
+    list: [],
 }
 
 export default function AiForm(props:Props) {
@@ -18,17 +19,33 @@ export default function AiForm(props:Props) {
         props.setList(list => [newObject,...list])
     }
 
+    function removeFirst() {
+        let array = props.list;
+        array.slice(0, 1);
+        // @ts-ignore
+        props.setList(array);
+    }
+
     function onSubmit(data: any) {
+        const object: GeneratedObject = {
+            image: "",
+            prompt: data.prompt,
+            id: 0,
+        }
+        addToList(object)
+        
         axios.get(`http://10.58.176.142:8000/?prompt=${data.prompt}`)
             .then((response) => {
                 console.log(response);
                 // props.setImageData(response.data.image);
+                removeFirst()
                 const object: GeneratedObject = {
                     image: response.data.image,
                     prompt: data.prompt,
                     id: response.data.id,
                 }
                 addToList(object)
+                
                 return
             })
             .catch((error) => {
