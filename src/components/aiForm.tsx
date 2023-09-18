@@ -50,9 +50,9 @@ export default function AiForm(props:Props) {
                     prompt: data.prompt,
                     id: response.data.id,
                 }
-                addToList(object)
                 removeFirst()
-                
+                addToList(object)
+
                 return
             })
             .catch((error) => {
