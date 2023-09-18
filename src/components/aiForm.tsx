@@ -14,11 +14,12 @@ export default function AiForm(props:Props) {
     const {handleSubmit, reset, register} = useForm()
 
     function addToList(newObject: GeneratedObject){
+        // @ts-ignore
         props.setList(list => [newObject,...list])
     }
 
     function onSubmit(data: any) {
-        axios.get(`http://127.0.0.1:8000/?prompt=${data.prompt}`)
+        axios.get(`http://10.58.176.142:8000/?prompt=${data.prompt}`)
             .then((response) => {
                 console.log(response);
                 // props.setImageData(response.data.image);
