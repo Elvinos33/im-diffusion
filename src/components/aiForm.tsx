@@ -45,7 +45,6 @@ export default function AiForm(props:Props) {
             .then((response) => {
                 console.log(response);
                 // props.setImageData(response.data.image);
-                removeFirst()
                 const object: GeneratedObject = {
                     image: response.data.image,
                     prompt: data.prompt,
@@ -59,6 +58,7 @@ export default function AiForm(props:Props) {
                 console.error(error);
             })
             .finally(() => {
+                removeFirst()
                 setLoading(false)
             })
 
