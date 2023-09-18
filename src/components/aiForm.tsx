@@ -1,8 +1,12 @@
+"use client";
+
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { GeneratedObject } from "@/app/generate/page";
+import { useState } from "react";
+import { Loader2 } from "lucide-react"
 
 type Props = {
     // setImageData(): void
@@ -11,6 +15,7 @@ type Props = {
 }
 
 export default function AiForm(props:Props) {
+    const [loading, setLoading] = useState(false);
 
     const {handleSubmit, reset, register} = useForm()
 
@@ -27,6 +32,8 @@ export default function AiForm(props:Props) {
     }
 
     function onSubmit(data: any) {
+        setLoading(true)
+
         const object: GeneratedObject = {
             image: "",
             prompt: data.prompt,
@@ -51,6 +58,9 @@ export default function AiForm(props:Props) {
             .catch((error) => {
                 console.error(error);
             })
+            .finally(() => {
+                setLoading(false)
+            })
 
         reset();
     }
@@ -59,8 +69,19 @@ export default function AiForm(props:Props) {
         <>
             <form onSubmit={handleSubmit(onSubmit)} className={"w-full"}>
                 <div className="flex items-center space-x-2">
-                    <Input autoComplete="off" type="text" placeholder={"Enter prompt.."} {...register("prompt", {required: true})}/>
-                    <Button type="submit" variant={"outline"}>Generate</Button>
+                    <Input disabled={loading} autoComplete="off" type="text" placeholder={"Enter prompt.."} {...register("prompt", {required: true})}/>
+                    <Button disabled={loading} type="submit" variant={"outline"}>
+                        {!loading ? (
+                            <span>
+                                Generate
+                            </span>
+                        ): (
+                            <div className="flex space-x-1 items-center">
+                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                <span>Generating</span>
+                            </div>
+                        )}
+                    </Button>
                 </div>
             </form>
         </>

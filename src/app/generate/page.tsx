@@ -15,7 +15,6 @@ export type GeneratedObject = {
 export default function Page() {
     const [list, setList] = useState([]);
 
-
     // @ts-ignore
     // @ts-ignore
     // @ts-ignore
