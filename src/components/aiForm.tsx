@@ -51,14 +51,16 @@ export default function AiForm(props:Props) {
                     id: response.data.id,
                 }
                 addToList(object)
+                removeFirst()
                 
                 return
             })
             .catch((error) => {
                 console.error(error);
+                removeFirst()
+
             })
             .finally(() => {
-                removeFirst()
                 setLoading(false)
             })
 
