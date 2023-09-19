@@ -5,6 +5,7 @@ import AiForm from "@/components/aiForm"
 import {useState} from "react";
 import Link from "next/link";
 import { GeneratedImageCard } from "@/components/generatedImageCard";
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogHeader, DialogTrigger } from "@/components/ui/dialog";
 
 export type GeneratedObject = {
     image: string,
@@ -14,7 +15,6 @@ export type GeneratedObject = {
 
 export default function Page() {
     const [list, setList] = useState([]);
-
 
     // @ts-ignore
     // @ts-ignore
@@ -28,7 +28,7 @@ export default function Page() {
                 </div>
                 <div className="flex-col items-center flex">
                     {/*@ts-ignore*/}
-                    <AiForm setList={setList}/>
+                    <AiForm list={list} setList={setList}/>
                     {/* <section className="p-12 w-4/6 flex items-center justify-center">
                         {image && (
                             <Image alt="AI bilde" src={`data:image/png;base64,${image}`}  width={500} height={500} />
@@ -39,7 +39,7 @@ export default function Page() {
                     {list.map((card: GeneratedObject) => (
                         <GeneratedImageCard id={card.id} image={card.image} prompt={card.prompt} key={card.id}/>
                     ))}
-                    {/* <GeneratedImageCard id={1} image="" prompt="ong"/> */}
+                    {/* <GeneratedImageCard id={1} image="" prompt="ong ong ong ong ong ong ong"/> */}
                 </div>
             </div>
         </main>
