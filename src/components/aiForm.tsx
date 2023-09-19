@@ -7,6 +7,7 @@ import { Input } from "./ui/input";
 import { GeneratedObject } from "@/app/generate/page";
 import { useState } from "react";
 import { Loader2 } from "lucide-react"
+import { useToast } from "./ui/use-toast";
 
 type Props = {
     // setImageData(): void
@@ -15,6 +16,8 @@ type Props = {
 }
 
 export default function AiForm(props:Props) {
+    // const { toast } = useToast();
+
     const [loading, setLoading] = useState(false);
 
     const {handleSubmit, reset, register} = useForm()
@@ -50,18 +53,25 @@ export default function AiForm(props:Props) {
                     prompt: data.prompt,
                     id: response.data.id,
                 }
-                removeFirst()
-                addToList(object)
+                removeFirst();
+
+                addToList(object);
 
                 return
             })
             .catch((error) => {
+
+                // toast({
+                //     title: "There was a problem when generating this image.",
+                //     description: error,
+                // });
+
                 console.error(error);
-                removeFirst()
+                removeFirst();
 
             })
             .finally(() => {
-                setLoading(false)
+                setLoading(false);
             })
 
         reset();
