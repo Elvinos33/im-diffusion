@@ -29,7 +29,7 @@ export default function page() {
                 </div>
                 <ul className={"p-2 flex flex-col space-y-3 items-center w-full"}>
                     {prompts.map((item) => (
-                        <li className={"flex gap-1 items-center bg-white/5 p-2 rounded w-full"}>
+                        <li key={item.prompt} className={"flex gap-1 items-center bg-white/5 p-2 rounded w-full"}>
                             <p className={"brightness-50 font-light w-12"}>{item.time}</p>
                             <p className="flex-1 line-clamp-4">{item.prompt}</p>
                         </li>
