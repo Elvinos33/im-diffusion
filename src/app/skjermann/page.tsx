@@ -9,7 +9,7 @@ type Object = {
     prompt: string,
 }
 
-export default function page() {
+export default function Page() {
     const [prompts, setPrompts] = useState<Object[]>([])
 
     const socket = io("ws://10.58.176.142/", {
