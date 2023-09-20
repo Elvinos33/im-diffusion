@@ -17,7 +17,7 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <span>©Elvebakken IM</span>
+        <span>The authors of this project are not responsible for any content generated using this interface.</span>
       </div>
     </main>
   )
