@@ -12,7 +12,7 @@ type Object = {
 export default function Page() {
     const [prompts, setPrompts] = useState<Object[]>([])
 
-    const socket = io("ws://10.58.176.142", {
+    const socket = io("ws://localhost:8000", {
         path: "/ws/socket.io",
     })
 
