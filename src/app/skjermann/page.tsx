@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { io } from "socket.io-client";
 
 type Object = {
@@ -16,10 +16,12 @@ export default function Page() {
         path: "/ws/socket.io",
     })
 
-    socket.on("prompt", (data: Object) => {
-        console.log(data)
-        setPrompts(oldPrompts => [data, ...oldPrompts]);
-    })
+    useEffect(() => {
+        socket.on("prompt", (data: Object) => {
+            setPrompts(oldPrompts => [data, ...oldPrompts]);
+        })
+    }, []);
+
 
     return (
         <main className={"w-full h-screen"}>
