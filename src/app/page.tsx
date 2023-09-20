@@ -16,8 +16,8 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      <div>
-        <span>The authors of this project are not responsible for any content generated using this interface.</span>
+      <div className={"p-2"}>
+        <span className={"opacity-50 text-[11px]"}>The authors of this project are not responsible for any content generated using this interface.</span>
       </div>
     </main>
   )
