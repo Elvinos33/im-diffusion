@@ -8,12 +8,7 @@ export default function Home() {
       <Blob />
       <div className="w-full flex justify-center items-center h-[90vh]">
         <div className="flex flex-col">
-          <span className="text-7xl font-bold">ARTISM</span>
-          <Button variant={"default"} asChild >
-            <Link href={"/generate"}>
-              Generate
-            </Link>
-          </Button>
+          <span className="text-7xl font-bold">IM-Diffusion is under maintenance</span>
         </div>
       </div>
       <div className={"p-2"}>
