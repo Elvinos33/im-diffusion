@@ -44,7 +44,7 @@ export default function AiForm(props:Props) {
         }
         addToList(object)
         
-        axios.get(`http://10.58.176.142:8000/?prompt=${data.prompt}`)
+        axios.get(`http://172.31.4.59:8000/?prompt=${data.prompt}`)
             .then((response) => {
                 console.log(response);
                 // props.setImageData(response.data.image);
